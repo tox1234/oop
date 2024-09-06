@@ -1,0 +1,14 @@
+import Shape
+
+
+class Square(Shape):
+    def __init__(self, height, length, color):
+        super().__init__(color)
+        self.length = length
+        self.height = height
+
+    def get_area(self):
+        return self.length * self.height
+
+    def get_perimeter(self):
+        return self.length * 2 + self.height * 2
