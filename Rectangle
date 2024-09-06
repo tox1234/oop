@@ -1,14 +1,63 @@
-import Shape
+"""
+Author: Ido Shema
+Date: 05/09/2024
+"""
+from Shape import Shape
 
 
-class Square(Shape):
-    def __init__(self, height, length, color):
+class Rectangle(Shape):
+    def __init__(self, height, length, color=""):
+        """
+            Builds rectangle object
+            :param:height: Height of rectangle
+            :param:length: Length of rectangle
+            :return: None
+        """
         super().__init__(color)
         self.length = length
         self.height = height
 
+    def get_length(self):
+        """
+            Gets the length of the rectangle
+            :return: Length of the rectangle
+        """
+        return self.length
+
+    def get_height(self):
+        """
+            Gets the height of the rectangle
+            :return: height of the rectangle
+        """
+        return self.height
+
     def get_area(self):
+        """
+            Gets the area of the rectangle
+            :return: Area of the rectangle
+        """
         return self.length * self.height
 
     def get_perimeter(self):
+        """
+            Gets the perimeter of the rectangle
+            :return: Perimeter of the rectangle
+        """
         return self.length * 2 + self.height * 2
+
+    def __add__(self, other):
+        """
+            Creates a new object that is the addition of the two objects
+            :return: New addition object
+        """
+        if isinstance(other, Rectangle):
+            return Rectangle(self.length + other.get_height(), self.length + other.get_length())
+        else:
+            return Rectangle(self.length + other.get_length(), self.length + other.get_length())
+
+
+e = Rectangle(2, 4)
+assert e.get_height() == 2
+assert e.get_length() == 4
+assert e.get_area() == 8
+assert e.get_perimeter() == 12
