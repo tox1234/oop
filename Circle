@@ -1,0 +1,14 @@
+import Shape
+import math
+
+
+class Square(Shape):
+    def __init__(self, radius, color):
+        super().__init__(color)
+        self.radius = radius
+
+    def get_area(self):
+        return math.pi * (self.radius ** 2)
+
+    def get_perimeter(self):
+        return math.pi * 2 * self.radius
