@@ -1,0 +1,15 @@
+class Shape:
+    def __init__(self):
+        self.color = ""
+
+    def set_color(self, color):
+        self.color = color
+
+    def get_color(self):
+        return self.color
+
+    def get_area(self):
+        pass
+
+    def get_perimeter(self):
+        pass
