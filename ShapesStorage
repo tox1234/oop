@@ -1,0 +1,85 @@
+"""
+Author: Ido Shema
+Date: 05/09/2024
+"""
+import random
+from Rectangle import Rectangle
+from Square import Square
+from Circle import Circle
+COLORS = ["blue", "red", "green", "yellow", "white", "black", "purple", "orange"]
+TYPES = [Rectangle, Square, Circle]
+
+
+class Container:
+    def __init__(self):
+        """
+            Builds shapes container object
+            :return: None
+        """
+        self.container = []
+
+    def generate(self, x):
+        """
+            Generates x random shapes
+            :param:x: Number of random shapes to generate
+            :return: None
+        """
+        for i in range(x):
+            random_color = random.choice(COLORS)
+            random_type = random.choice(TYPES)
+            if random_type == Rectangle:
+                height = random.randrange(1, 11)
+                length = random.randrange(1, 11)
+                rectangle = random_type(height, length)
+                rectangle.set_color(random_color)
+                self.container.append(rectangle)
+            elif random_type == Square:
+                length = random.randrange(1, 11)
+                square = random_type(length)
+                square.set_color(random_color)
+                self.container.append(square)
+            else:
+                radius = random.randrange(1, 11)
+                circle = random_type(radius)
+                circle.set_color(random_color)
+                self.container.append(circle)
+
+    def sum_areas(self):
+        """
+            Sum of areas
+            :return: Sum of areas
+        """
+        sum_ = 0
+        for i in range(len(self.container)):
+            sum_ += self.container[i].get_area()
+        return sum_
+
+    def sum_perimeters(self):
+        """
+            Sum of perimeters
+            :return: Sum of perimeters
+        """
+        sum_ = 0
+        for i in range(len(self.container)):
+            sum_ += self.container[i].get_perimeter()
+        return sum_
+
+    def count_colors(self):
+        """
+            Counts the colors
+            :return: A dictionary with all the colors and how much they appear
+        """
+        dic = {color: 0 for color in COLORS}
+        for object_ in self.container:
+            if object_.get_color() in dic:
+                dic[object_.get_color()] += 1
+        return dic
+
+
+my_container = Container()
+my_container.generate(100)
+print("total area:", my_container.sum_areas())
+print("total perimeter:", my_container.sum_perimeters())
+print("colors:", my_container.count_colors())
+
+assert type(my_container.count_colors()) == dict
