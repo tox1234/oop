@@ -1,15 +1,48 @@
+"""
+Author: Ido Shema
+Date: 05/09/2024
+"""
+
+
 class Shape:
-    def __init__(self):
-        self.color = ""
+    def __init__(self, color=""):
+        """
+           Builds shape object
+           :return: None
+        """
+        self.color = color
 
     def set_color(self, color):
+        """
+           sets a color for the shape
+           :param:color: The color input
+           :return: None
+        """
         self.color = color
 
     def get_color(self):
+        """
+           Gets the color of the shape
+           :return: The color of the shape
+        """
         return self.color
 
     def get_area(self):
+        """
+           Gets the area of the shape
+           :return: None
+        """
         pass
 
     def get_perimeter(self):
+        """
+            Gets the perimeter of the shape
+            :return: None
+        """
         pass
+
+
+x = Shape()
+x.set_color("blue")
+
+assert x.get_color() == "blue"
