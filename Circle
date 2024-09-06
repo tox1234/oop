@@ -1,14 +1,36 @@
-import Shape
+"""
+Author: Ido Shema
+Date: 05/09/2024
+"""
+from Shape import Shape
 import math
 
 
-class Square(Shape):
-    def __init__(self, radius, color):
+class Circle(Shape):
+    def __init__(self, radius, color=""):
+        """
+            Builds circle object
+            :param:radius: Radius of circle
+            :return: None
+        """
         super().__init__(color)
         self.radius = radius
 
     def get_area(self):
+        """
+            Gets the area of the circle
+            :return: Area of the circle
+        """
         return math.pi * (self.radius ** 2)
 
     def get_perimeter(self):
+        """
+            Gets the perimeter of the circle
+            :return: Perimeter of the circle
+        """
         return math.pi * 2 * self.radius
+
+
+f = Circle(2)
+assert f.get_area() == math.pi * 4
+assert f.get_perimeter() == math.pi * 4
