@@ -3,7 +3,6 @@ Author: Ido Shema
 Date: 05/09/2024
 """
 from Shape import Shape
-from Rectangle import Rectangle
 
 
 class Square(Shape):
@@ -40,17 +39,12 @@ class Square(Shape):
     def __add__(self, other):
         """
             Creates a new object that is the addition of the two objects
-            :return: New addition object
+            :return: New addition Shape
         """
-        if isinstance(other, Square):
-            return Rectangle(self.length + other.get_length(), self.length + other.get_length())
-        else:
-            return Rectangle(self.length + other.get_height(), self.length + other.get_length())
+        return Shape(self.get_area() + other.get_area(), self.get_perimeter() + other.get_perimeter())
 
 
 y = Square(2)
-z = y + y
 assert y.get_length() == 2
 assert y.get_area() == 4
 assert y.get_perimeter() == 8
-assert z.get_length() == 4
