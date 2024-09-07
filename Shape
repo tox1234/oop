@@ -5,11 +5,15 @@ Date: 05/09/2024
 
 
 class Shape:
-    def __init__(self, color=""):
+    def __init__(self, area=0, perimeter=0, color=""):
         """
            Builds shape object
+           :param:area: Area of shape
+           :param:perimeter: Perimeter of shape
            :return: None
         """
+        self.area = area
+        self.perimeter = perimeter
         self.color = color
 
     def set_color(self, color):
@@ -30,19 +34,18 @@ class Shape:
     def get_area(self):
         """
            Gets the area of the shape
-           :return: None
+           :return: Area of shape
         """
-        pass
+        return self.area
 
     def get_perimeter(self):
         """
             Gets the perimeter of the shape
-            :return: None
+            :return: Perimeter of shape
         """
-        pass
+        return self.perimeter
 
 
 x = Shape()
 x.set_color("blue")
-
 assert x.get_color() == "blue"
