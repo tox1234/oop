@@ -48,12 +48,9 @@ class Rectangle(Shape):
     def __add__(self, other):
         """
             Creates a new object that is the addition of the two objects
-            :return: New addition object
+            :return: New addition Shape
         """
-        if isinstance(other, Rectangle):
-            return Rectangle(self.length + other.get_height(), self.length + other.get_length())
-        else:
-            return Rectangle(self.length + other.get_length(), self.length + other.get_length())
+        return Shape(self.get_area() + other.get_area(), self.get_perimeter() + other.get_perimeter())
 
 
 e = Rectangle(2, 4)
